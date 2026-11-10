@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corneille Poma | Créateur Digital</title>
+<meta name="description" content="Portfolio de Corneille Poma, développeur web, vidéaste et graphiste.">
+<style>
+:root{--bg:#080b14;--surface:#111827;--text:#f5f7ff;--muted:#9ca9bd;--blue:#3987ff;--purple:#9166ff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font-family:Arial,sans-serif;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,90%);margin:auto}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--purple));z-index:50}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.28;z-index:-1;pointer-events:none}
+.orb.o1{width:420px;height:420px;background:var(--blue);top:-120px;left:-120px;animation:float 14s ease-in-out infinite}
+.orb.o2{width:380px;height:380px;background:var(--purple);bottom:-120px;right:-100px;animation:float 17s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,50px)}}
+header{position:sticky;top:0;z-index:20;background:#080b14ee;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff12}
+nav{min-height:75px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:23px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--blue)}
+.navlinks{display:flex;gap:25px;list-style:none}
+.navlinks a{font-size:13px;color:var(--muted);position:relative;padding-bottom:4px;transition:color .2s}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--blue);transition:width .3s}
+.navlinks a:hover,.navlinks a.active{color:#fff}
+.navlinks a:hover::after,.navlinks a.active::after{width:100%}
+.menu{display:none;background:none;color:#fff;border:0;font-size:26px;cursor:pointer}
+.hero{min-height:670px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:45px;padding:90px 0}
+.tag{display:inline-block;color:#83b5ff;background:#3987ff18;border:1px solid #3987ff55;border-radius:30px;padding:7px 15px;font-size:12px;margin-bottom:25px}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.08;letter-spacing:-3px;margin-bottom:22px}
+.gradient{background:linear-gradient(90deg,#3987ff,#a276ff,#3987ff);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.hero p,.section-intro{color:var(--muted);max-width:580px}
+.role{margin-top:20px;font-size:18px;color:#cbd5e1;min-height:30px}
+.role b{color:#8ab8ff}
+.caret{display:inline-block;width:2px;height:1em;background:#8ab8ff;margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{padding:13px 23px;border-radius:9px;display:inline-block;font-weight:bold;font-size:14px;transition:transform .25s,box-shadow .25s;cursor:pointer}
+.btn:hover{transform:translateY(-3px)}
+.primary{background:linear-gradient(100deg,var(--blue),var(--purple))}
+.primary:hover{box-shadow:0 10px 30px #3987ff55}
+.secondary{border:1px solid #ffffff30}
+.secondary:hover{background:#ffffff10}
+.hero-in{opacity:0;transform:translateY(26px);animation:in .8s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-in:nth-child(1){animation-delay:.1s}.hero-in:nth-child(2){animation-delay:.25s}.hero-in:nth-child(3){animation-delay:.4s}.hero-in:nth-child(4){animation-delay:.55s}.hero-in:nth-child(5){animation-delay:.7s}
+@keyframes in{to{opacity:1;transform:none}}
+.visual{min-height:390px;border-radius:28px;background:radial-gradient(circle at 30% 30%,#3987ff65,transparent 45%),radial-gradient(circle at 75% 70%,#9166ff65,transparent 45%),#111827;border:1px solid #ffffff20;display:grid;place-items:center;position:relative;overflow:hidden;animation:bob 6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.ring{position:absolute;width:290px;height:290px;border-radius:50%;border:1px dashed #ffffff30;animation:spin 22s linear infinite}
+.ring::after{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 20px var(--blue)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.monogram{font-size:125px;font-weight:900;letter-spacing:-12px;text-shadow:0 10px 60px #3987ff80;position:relative}
+.visual small{position:absolute;bottom:25px;color:#c7d5f0;letter-spacing:4px;font-size:11px}
+section{padding:95px 0}
+.section-title{font-size:36px;margin-bottom:12px}
+.section-intro{margin-bottom:38px}
+.grid3,.grid2{display:grid;gap:18px}
+.grid3{grid-template-columns:repeat(3,1fr)}
+.grid2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--surface);border:1px solid #ffffff12;border-radius:16px;padding:25px;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);border-color:#3987ff80;box-shadow:0 18px 40px #3987ff22}
+.card .symbol{font-size:30px;margin-bottom:15px;display:inline-block;transition:transform .3s}
+.card:hover .symbol{transform:scale(1.2) rotate(-6deg)}
+.card h3{font-size:19px;margin-bottom:9px}
+.card p{color:var(--muted);font-size:14px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.tool{padding:8px 14px;border-radius:8px;background:#ffffff0b;border:1px solid #ffffff16;color:#cbd5e1;font-size:13px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.about-box{padding:35px;border-radius:20px;background:linear-gradient(140deg,#14284c,#201638);border:1px solid #ffffff20}
+.about-box strong{font-size:42px;color:#8ab8ff}
+.stats{display:flex;gap:30px;margin-top:22px;flex-wrap:wrap}
+.stats div{font-size:13px;color:var(--muted)}
+.stats b{display:block;font-size:30px;color:#fff}
+.project-art{height:175px;border-radius:11px;margin-bottom:20px;display:grid;place-items:center;font-size:26px;font-weight:900;letter-spacing:2px;text-align:center;overflow:hidden;position:relative}
+.project-art::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,#ffffff30 50%,transparent 65%);transform:translateX(-100%);transition:transform .8s}
+.card:hover .project-art::after{transform:translateX(100%)}
+.art1{background:linear-gradient(135deg,#143b6b,#357bdb)}
+.art2{background:linear-gradient(135deg,#38205e,#9a5be9)}
+.art3{background:linear-gradient(135deg,#164d43,#41a48c)}
+.art4{background:linear-gradient(135deg,#502b39,#d76a80)}
+.project-link{display:inline-block;margin-top:15px;color:#80b5ff;font-size:13px;transition:letter-spacing .25s}
+a.project-link:hover{letter-spacing:1px}
+.project-label{font-size:11px;color:#80b5ff;margin-bottom:7px}
+.contact{background:linear-gradient(135deg,#12284a,#21183c);border:1px solid #ffffff20;border-radius:24px;padding:50px 40px;text-align:center}
+.contact>p{color:#c2cde0;margin:15px auto 35px;max-width:550px}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
+.c-item{display:flex;align-items:center;gap:14px;padding:18px;border-radius:14px;background:#ffffff0a;border:1px solid #ffffff18;transition:transform .3s,border-color .3s,background .3s;min-width:0}
+.c-item:hover{transform:translateY(-5px);border-color:#3987ff90;background:#ffffff12}
+.c-icon{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,var(--blue),var(--purple))}
+.c-item small{display:block;color:var(--muted);font-size:12px}
+.c-item span{display:block;font-size:14px;font-weight:bold;overflow-wrap:anywhere}
+footer{padding:30px 0;border-top:1px solid #ffffff15;color:var(--muted);font-size:12px}
+.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.show{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+#top{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(14px);transition:.3s;z-index:30}
+#top.on{opacity:1;pointer-events:auto;transform:none}
+@media(max-width:750px){
+ .hero,.about{grid-template-columns:1fr}
+ .hero{padding:65px 0}
+ .visual{min-height:270px}
+ .ring{width:200px;height:200px}
+ .monogram{font-size:95px}
+ .grid3,.grid2,.contact-grid{grid-template-columns:1fr}
+ .navlinks{display:none;position:absolute;top:75px;left:0;width:100%;background:#101624;padding:25px;flex-direction:column}
+ .navlinks.open{display:flex}
+ .menu{display:block}
+ section{padding:65px 0}
+ .contact{padding:32px 20px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .reveal,.hero-in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="orb o1"></div><div class="orb o2"></div>
+
+<header>
+ <nav class="container">
+  <a class="logo" href="#accueil">POMA<span>.</span></a>
+  <button class="menu" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
+  <ul class="navlinks" id="navlinks">
+   <li><a href="#accueil">Accueil</a></li>
+   <li><a href="#apropos">À propos</a></li>
+   <li><a href="#competences">Compétences</a></li>
+   <li><a href="#projets">Projets</a></li>
+   <li><a href="#services">Services</a></li>
+   <li><a href="#contact">Contact</a></li>
+  </ul>
+ </nav>
+</header>
+
+<main>
+<section class="container hero" id="accueil">
+ <div>
+  <span class="tag hero-in">✦ CRÉATEUR DIGITAL & INDÉPENDANT</span>
+  <h1 class="hero-in">Je transforme<br>les idées en<br><span class="gradient">réalisations.</span></h1>
+  <p class="hero-in">Je suis Corneille Poma. Je conçois des sites web, des identités visuelles et des vidéos qui donnent vie aux idées.</p>
+  <div class="role hero-in">Je suis <b id="typed"></b><span class="caret"></span></div>
+  <div class="actions hero-in">
+   <a class="btn primary" href="#projets">Découvrir mes projets ↗</a>
+   <a class="btn secondary" href="#contact">Me contacter</a>
+  </div>
+ </div>
+ <div class="visual">
+  <div class="ring"></div>
+  <div class="monogram">CP.</div>
+  <small>CREATIVITY · TECHNOLOGY · DESIGN</small>
+ </div>
+</section>
+
+<section id="apropos">
+ <div class="container about">
+  <div class="reveal">
+   <span class="tag">QUI SUIS-JE ?</span>
+   <h2 class="section-title">À propos de moi</h2>
+   <p class="section-intro">Passionné par la technologie et la création, je développe mes compétences dans plusieurs domaines du numérique. Mon ambition est de concevoir des solutions modernes, esthétiques et utiles.</p>
+   <p class="section-intro" style="margin-bottom:0">De la conception d'un site web à la réalisation d'une vidéo publicitaire, en passant par le design graphique, j'aime transformer chaque idée en un projet concret.</p>
+  </div>
+  <div class="about-box reveal d2">
+   <strong>CP.</strong>
+   <h3>Ma vision</h3>
+   <p>Créer avec passion. Développer avec précision. Communiquer avec créativité.</p>
+   <div class="stats">
+    <div><b data-count="4">0</b>domaines</div>
+    <div><b data-count="4">0</b>projets</div>
+    <div><b data-count="100" data-suffix="%">0</b>passion</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="competences">
+ <div class="container">
+  <div class="reveal">
+   <span class="tag">MON SAVOIR-FAIRE</span>
+   <h2 class="section-title">Mes compétences</h2>
+   <p class="section-intro">Quatre domaines pour donner une dimension complète à vos projets.</p>
+  </div>
+  <div class="grid2">
+   <article class="card reveal">
+    <div class="symbol">💻</div><h3>Développement web</h3>
+    <p>Création de sites web modernes, interfaces responsives et solutions numériques.</p>
+    <div class="tools"><span class="tool">HTML</span><span class="tool">CSS</span><span class="tool">JavaScript</span><span class="tool">GitHub</span></div>
+   </article>
+   <article class="card reveal d1">
+    <div class="symbol">🎨</div><h3>Design graphique</h3>
+    <p>Conception de logos, affiches, visuels publicitaires et identités de marque.</p>
+    <div class="tools"><span class="tool">Canva</span><span class="tool">Photoshop</span><span class="tool">Branding</span></div>
+   </article>
+   <article class="card reveal">
+    <div class="symbol">🎬</div><h3>Production vidéo</h3>
+    <p>Création de contenus audiovisuels, vidéos promotionnelles et storytelling.</p>
+    <div class="tools"><span class="tool">Cadrage</span><span class="tool">Montage</span><span class="tool">Storytelling</span></div>
+   </article>
+   <article class="card reveal d1">
+    <div class="symbol">📈</div><h3>Marketing digital</h3>
+    <p>Création de contenus, communication digitale, visibilité et stratégie de marque.</p>
+    <div class="tools"><span class="tool">Communication</span><span class="tool">Content creation</span><span class="tool">Stratégie digitale</span></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="projets">
+ <div class="container">
+  <div class="reveal">
+   <span class="tag">MON UNIVERS CRÉATIF</span>
+   <h2 class="section-title">Quelques projets</h2>
+   <p class="section-intro">Des initiatives numériques et créatives sur lesquelles je travaille.</p>
+  </div>
+  <div class="grid2">
+   <article class="card reveal">
+    <div class="project-art art1">DIGITAL ACADEMY</div>
+    <div class="project-label">FORMATION · DIGITAL</div>
+    <h3>Digital Academy</h3>
+    <p>Une plateforme dédiée à la formation digitale, au développement web et à la création numérique.</p>
+    <a class="project-link" href="https://sites.google.com/view/digital-academy-2026/accueil" target="_blank" rel="noopener">Visiter le projet ↗</a>
+   </article>
+   <article class="card reveal d1">
+    <div class="project-art art2">CAPAVENIR</div>
+    <div class="project-label">WEB · ORIENTATION</div>
+    <h3>CapAvenir RDC</h3>
+    <p>Une plateforme d'orientation post-bac pour aider les étudiants à découvrir leurs possibilités d'études.</p>
+    <a class="project-link" href="https://cap-avenir-rdc.vercel.app/" target="_blank" rel="noopener">Visiter le projet ↗</a>
+   </article>
+   <article class="card reveal">
+    <div class="project-art art3">DIGITAL INVITE</div>
+    <div class="project-label">WEB · DESIGN</div>
+    <h3>Digital Invite</h3>
+    <p>Un concept d'invitations électroniques personnalisées pour les événements.</p>
+    <span class="project-link">Projet en développement</span>
+   </article>
+   <article class="card reveal d1">
+    <div class="project-art art4">VTO</div>
+    <div class="project-label">COMMUNICATION · BRANDING</div>
+    <h3>Univers VTO</h3>
+    <p>Participation à des initiatives de communication, de design et de promotion de marque.</p>
+    <a class="project-link" href="https://sites.google.com/view/vto-services?usp=sharing" target="_blank" rel="noopener">Découvrir VTO ↗</a>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="services">
+ <div class="container">
+  <div class="reveal">
+   <span class="tag">CE QUE JE PROPOSE</span>
+   <h2 class="section-title">Mes services</h2>
+   <p class="section-intro">Des solutions créatives adaptées à votre projet.</p>
+  </div>
+  <div class="grid3">
+   <article class="card reveal"><div class="symbol">🌐</div><h3>Sites web</h3><p>Création de sites vitrines et plateformes digitales.</p></article>
+   <article class="card reveal d1"><div class="symbol">🖌️</div><h3>Design graphique</h3><p>Logos, affiches et supports publicitaires.</p></article>
+   <article class="card reveal d2"><div class="symbol">📹</div><h3>Vidéographie</h3><p>Vidéos promotionnelles et contenus audiovisuels.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="contact reveal">
+   <span class="tag">TRAVAILLONS ENSEMBLE</span>
+   <h2 class="section-title">Vous avez une idée ?</h2>
+   <p>Un projet web, une identité visuelle ou une vidéo à réaliser ? Parlons de votre projet et donnons-lui vie ensemble.</p>
+   <div class="contact-grid">
+    <a class="c-item" href="https://wa.me/243850341493" target="_blank" rel="noopener">
+     <div class="c-icon">💬</div><div><small>WhatsApp</small><span>0850 341 493</span></div>
+    </a>
+    <a class="c-item" href="https://www.instagram.com/corneillepoma/" target="_blank" rel="noopener">
+     <div class="c-icon">📸</div><div><small>Instagram</small><span>corneille poma</span></div>
+    </a>
+    <a class="c-item" href="mailto:corneillepoma72@gmail.com">
+     <div class="c-icon">✉️</div><div><small>E-mail</small><span>corneillepoma72@gmail.com</span></div>
+    </a>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container footer-row">
+  <span>© <span id="year"></span> Corneille Poma. Tous droits réservés.</span>
+  <span>Créativité · Technologie · Innovation</span>
+ </div>
+</footer>
+
+<button id="top" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleMenu(){document.getElementById('navlinks').classList.toggle('open')}
+document.querySelectorAll('.navlinks a').forEach(l=>l.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+
+// Texte qui s'écrit
+const roles=['développeur web','vidéaste','graphiste','créateur de contenu'];
+const el=document.getElementById('typed');
+let r=0,c=0,del=false;
+function type(){
+ const w=roles[r];
+ el.textContent=w.slice(0,c);
+ if(!del&&c===w.length){del=true;return setTimeout(type,1400)}
+ if(del&&c===0){del=false;r=(r+1)%roles.length}
+ c+=del?-1:1;
+ setTimeout(type,del?45:90);
+}
+type();
+
+// Apparition au défilement + compteurs
+function count(n){
+ const t=+n.dataset.count,s=n.dataset.suffix||'';let v=0;
+ const step=()=>{v+=Math.max(1,t/40);if(v>=t){n.textContent=t+s}else{n.textContent=Math.floor(v)+s;requestAnimationFrame(step)}};
+ step();
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+ if(e.isIntersecting){
+  e.target.classList.add('show');
+  e.target.querySelectorAll('[data-count]').forEach(count);
+  io.unobserve(e.target);
+ }
+}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+
+// Barre de progression, bouton retour, lien actif
+const bar=document.getElementById('progress'),top_=document.getElementById('top');
+const links=[...document.querySelectorAll('.navlinks a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{
+ const h=document.documentElement;
+ bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+ top_.classList.toggle('on',h.scrollTop>500);
+ let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<150)i=k});
+ links.forEach((a,k)=>a.classList.toggle('active',k===i));
+},{passive:true});
+</script>
+</body>
+</html>
